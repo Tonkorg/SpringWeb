@@ -1,18 +1,26 @@
-package ru.tyaga.SpringWeb.service;
+package ru.tyaga.SpringWeb.service.imp;
 
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ru.tyaga.SpringWeb.model.Student;
+import ru.tyaga.SpringWeb.repository.InmemoryStudentDAO;
+import ru.tyaga.SpringWeb.service.StudentService;
 
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class InMemoryStudentServiceImpl implements StudentService{
+@AllArgsConstructor
+public class InMemoryStudentServiceImpl implements StudentService {
 
+
+    private final InmemoryStudentDAO dao;
     @Override
     public List<Student> findAllStusent() {
-        return null;
+        return dao.findAllStusent();
 //                List.of(
 //
 //                Student.builder().
@@ -27,21 +35,21 @@ public class InMemoryStudentServiceImpl implements StudentService{
 
     @Override
     public Student saveStudent(Student student) {
-        return null;
+        return dao.saveStudent(student);
     }
 
     @Override
     public Student findByEmail(String email) {
-        return null;
+        return dao.findByEmail(email);
     }
 
     @Override
     public Student updateStudent(Student student) {
-        return null;
+        return dao.updateStudent(student);
     }
 
     @Override
     public void deleteStudent(String email) {
-
+            dao.deleteStudent(email);
     }
 }

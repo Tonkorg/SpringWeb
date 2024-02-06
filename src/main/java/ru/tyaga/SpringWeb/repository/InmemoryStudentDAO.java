@@ -1,13 +1,17 @@
 package ru.tyaga.SpringWeb.repository;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import ru.tyaga.SpringWeb.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@Repository
 public class InmemoryStudentDAO {
-    private List<Student> STUDENT = new ArrayList();
+    private final  List<Student> STUDENT = new ArrayList();
 
     public List<Student> findAllStusent(){
         return STUDENT;
